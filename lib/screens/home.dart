@@ -1,9 +1,7 @@
 import 'package:bilheteria_panucci/logic/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:bilheteria_panucci/components/classification.dart';
 import 'package:bilheteria_panucci/components/home/genre_filter.dart';
 import 'package:bilheteria_panucci/components/movie_card.dart';
-import 'package:bilheteria_panucci/models/movie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatefulWidget {
