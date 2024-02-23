@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
               ),
-              const GenreFilter(),
+              GenreFilter(homeCubit: homeCubit),
               BlocBuilder<HomeCubit, HomeStates>(
                 bloc: homeCubit,
                 builder: (context, state) {
@@ -43,19 +43,31 @@ class _HomeState extends State<Home> {
                     return const SliverFillRemaining(
                         child: Center(child: CircularProgressIndicator()));
                   } else if (state is HomeSuccess) {
-                    return SliverGrid.builder(
-                      itemCount: state.movies.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 8,
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 4,
-                        mainAxisExtent: 320,
-                      ),
-                      itemBuilder: (context, index) {
-                        return MovieCard(movie: state.movies[index]);
-                      },
-                    );
+                    if (state.movies.isEmpty) {
+                      return const SliverFillRemaining(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.not_interested, size: 30),
+                            SizedBox(height: 16),
+                            Text('Não existem filmes deste gênero.')
+                          ],
+                        ),
+                      );
+                    } else {
+                      return SliverGrid.builder(
+                        itemCount: state.movies.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 4,
+                          mainAxisExtent: 300,
+                        ),
+                        itemBuilder: (context, index) {
+                          return MovieCard(movie: state.movies[index]);
+                        },
+                      );
+                    }
                   } else if (state is HomeError) {
                     return SliverFillRemaining(
                       child: Column(

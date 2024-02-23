@@ -14,7 +14,7 @@ class MovieCard extends StatelessWidget {
         Card(
             clipBehavior: Clip.hardEdge,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 290),
+              constraints: const BoxConstraints(maxHeight: 265),
               child: InkWell(
                   onTap: () {
                     Navigator.push(
