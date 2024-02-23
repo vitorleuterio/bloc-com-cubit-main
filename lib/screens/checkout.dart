@@ -45,10 +45,10 @@ class Checkout extends StatelessWidget {
                 ),
               ),
               const PaymentTotal(total: 32),
-              Expanded(
+              const Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const <Widget>[
+                  children: <Widget>[
                     OrderButton(),
                   ],
                 ),

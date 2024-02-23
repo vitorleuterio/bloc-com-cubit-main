@@ -101,8 +101,8 @@ class _MovieSession extends StatelessWidget {
                 )
                 .toList(),
           )
-        : Column(
-            children: const [
+        : const Column(
+            children: [
               Icon(Icons.error, size: 30),
               Text('Não há sessões disponíveis'),
             ],

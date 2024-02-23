@@ -38,7 +38,6 @@ class _HomeState extends State<Home> {
               BlocBuilder<HomeCubit, HomeStates>(
                 bloc: homeCubit,
                 builder: (context, state) {
-                  print(state);
                   if (state is HomeLoading) {
                     return const SliverFillRemaining(
                         child: Center(child: CircularProgressIndicator()));
@@ -80,7 +79,7 @@ class _HomeState extends State<Home> {
                       ),
                     );
                   }
-                  return SliverToBoxAdapter();
+                  return const SliverToBoxAdapter();
                 },
               ),
             ],
